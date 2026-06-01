@@ -1,30 +1,32 @@
+// Rithvik Suren - Matching Class Draft (Core Matching Proces Complete)
+
+// Use Java ArrayList
+import java.util.ArrayList;
+
 // Matching Class
-//Rithvik
-
-//Simple First Draft: 
-
 public class TutorMatcher{
-// Main Matching Method
+    // Main Matching Method
+    public ArrayList<Tutor> matchStudents(Student student, String subjectNeeded){
 
-    public List<Tutor> findBestTutors(Student student, List<Tutor> tutors) {
-        List<Tutor> matches = new ArrayList<>();
-        for (Tutor tutor : tutors) {
+        ArrayList<Tutor> matches = new ArrayList<>();
+        for (Tutor tutor : Tutor.tutors) {
             // Check subject match
-            if (tutor.subject.equals(student.subjectNeeded)) {
+             if(tutor.getSubjects().contains(subjectNeeded)) {
                 // Check tutor rating
-                if (tutor.rating >= 4.5) {
+                if (tutor.getRating() >= 4.5) {              // Solid rating
                     matches.add(tutor);
-                    if(student.needLevel > 0.5){
+                    if(student.getAcademicRating() <= 0.5) {        
                         student.isMatched = true;
-		matches = {tutor};
+                    }
+                } else if (tutor.getRating() >= 3.5 && tutor.getExperienceYears() > 3) {
+                    // Borderline rating, but experienced = might be good with struggling students
+                    matches.add(tutor);
+                    if(student.getAcademicRating() <= 0.5) {        
+                        student.isMatched = true;             // Good match
                     }
                 }
-            }
+            }  
         }
         return matches;
-}
-
-
-
-
+    }
 }
