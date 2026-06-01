@@ -1,4 +1,4 @@
-#AP WE Project 2025-26 for AP CSA
+# AP WE Project 2025-26 for AP CSA
 
 * Tutor connection/matching app
   * looks for local opportunities 
