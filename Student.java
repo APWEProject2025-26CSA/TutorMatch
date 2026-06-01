@@ -13,6 +13,7 @@ public class Student{
     private double aRating;
     private double bRating;
     private int gradeLevel;
+    public boolean isMatched; // Rithvik - Checks if he is matched with a tutor at the moment for a session or not
     
     public static ArrayList<String> sUnames;
     public static ArrayList<Student> students;
@@ -67,11 +68,16 @@ public class Student{
     public String getUname(){
         return this.uname;
     }
+
+    public double getAcademicRating(){ // Rithvik
+        return this.aRating;
+    }
     
     public void increment(){
-        this.age++;
-        this.gradeLevel++;
+    this.age++;
+    this.gradeLevel++;
     }
+    
     /*
     public void review(double b, double a){
         this.aRating+=a*0.1;
@@ -93,9 +99,6 @@ public class Student{
         if (this.bRating>1){
             this.bRating = 1;
         } else if (this.bRating<0){
-            this.bRating = 0;
+            this.bRating = 0;}
         }
-    }
-
-     
 }
