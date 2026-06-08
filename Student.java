@@ -1,4 +1,7 @@
+//Student class - Aaditya
+
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Student{
     
@@ -12,11 +15,13 @@ public class Student{
     private int gradeLevel;
     private String pwd;
     private boolean isMatched;
+    private ArrayList<Tutor> tutors;
     
     private ArrayList<Tutor> matches;
+    private ArrayList<String> subjectMatches;
     
-    public static ArrayList<String> sUnames;
-    public static ArrayList<Student> students;
+    public static ArrayList<String> sUnames = new ArrayList<>();
+    private static ArrayList<Student> students = new ArrayList<>();
     
     public Student(String fname, String lname, int age, int gradeLevel, String pwd){
         this.fname = fname;
@@ -89,24 +94,28 @@ public class Student{
         this.gradeLevel++;
     }
     
-    public void review(double b, double a){
-        this.aRating+=a*0.1;
-        this.bRating+=b*0.1;
+    public static void review(String sUname, Tutor t, double b, double a){
+        //Ensure tutor is logged in, and has sUname in their students list
         
-        if (this.aRating>1){
-            this.aRating = 1;
-        } else if (this.aRating<0){
-            this.aRating = 0;
+        Student rs = getStudentBypassPwd(sUname); 
+        
+        rs.aRating+=a*0.1;
+        rs.bRating+=b*0.1;
+        
+        if (rs.aRating>1){
+            rs.aRating = 1;
+        } else if (rs.aRating<0){
+            rs.aRating = 0;
         }
         
-        if (this.bRating>1){
-            this.bRating = 1;
-        } else if (this.bRating<0){
-            this.bRating = 0;
+        if (rs.bRating>1){
+            rs.bRating = 1;
+        } else if (rs.bRating<0){
+            rs.bRating = 0;
         }
     }
     
-    private String getPwd(String un){
+    private String getPwd(){
         return this.pwd;
     }
     
@@ -114,7 +123,7 @@ public class Student{
         String cPwd = null;
         for (Student s : students){
             if (s.getUname().equals(un)){
-                cPwd = s.getPwd(un);
+                cPwd = s.getPwd();
             }
         }
         if (cPwd == null){
@@ -127,10 +136,77 @@ public class Student{
         }
     }
     
+    public static Student getStudent(String uname, String pwd){
+        Student st = null;
+        for (Student s : students){
+            if (s.getUname().equals(uname)){
+                st = s;
+            }
+        }
+        if (st!=null){
+            if (st.getPwd().equals(pwd)){
+                return st;
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
+    }
+    
+    private static Student getStudentBypassPwd(String uname){
+        Student st = null;
+        for (Student s : students){
+            if (s.getUname().equals(uname)){
+                st = s;
+            }
+        }
+        if (st!=null){
+            return st;
+        } else {
+            return null;
+        }
+    }
+    
+    public void requestTutor(String subject, Scanner scan){
+        
+        int ind = -1;
+        
+        for (int i=0; i<this.subjectMatches.size(); i++){
+            if (this.subjectMatches.get(i).equals(subject)){
+                ind = i;
+            }
+        }
+        
+        if (ind==-1){
+            System.out.println("Match doesn't exist");
+        } else {
+            ArrayList<Tutor> options = this.matches.get(ind);
+            System.out.println("Here are your options: ");
+            
+            for (int j=0; j<this.options.size(); j++){
+                Tutor opt = options.get(j);
+                System.out.print(""+j+": ");
+                //Print key info about each tutor
+                System.out.println();
+            }
+            
+            System.out.println("Please select a tutor");
+            
+            int picked = Integer.parseInt(scan.nextLine());
+            
+            Tutor pt = options.get(picked);
+            
+            //Call request method in tutor class
+            
+        }
+    }
+    
+    
     public void matchSingular(String subject){
         ArrayList<Tutor> m1 = TutorMatcher.matchStudents(this, subject);
-        m1.add(0, "Matches for: "+subject);
         this.matches.add(m1);
+        this.subjectMatches.add(subject);
     }
     
 }
