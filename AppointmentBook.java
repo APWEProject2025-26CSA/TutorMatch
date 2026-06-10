@@ -97,15 +97,20 @@ return false;}
 
 /* TODO:
 
+//Add method in ApptBook class to schedule based on lunch blocks for grade, first & second, or MS grade lunches, student should be able to choose if they want first or second based on the day if in HS
+
 In Student Class:
 These methods let a student request and manage tutoring time during the school day:
 
+//Timing will be based on tutor, student will be able to select one out of the preferred times (this method isn't required)
 public void addPreferredTime(int startPeriod, int endPeriod)
 - can store the student’s available school-day windows.
 
+//Already integrated/integrating in a different method
 public boolean requestSession(Tutor tutor, int duration)
 - Sends a session request to a tutor.
 
+//Unecessary
 public void confirmSession(int sessionId)
 - Marks a requested session as accepted/confirmed.
 
