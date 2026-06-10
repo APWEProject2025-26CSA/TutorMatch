@@ -14,6 +14,7 @@ public class AppointmentBook
 private ArrayList<String> availBlocks;
 private int[][] availableTimings; // Instance variable to store the entered timings
 private boolean[][] minuteAvailability; // Saves whether each minute is available or not
+private ArrayList<Appointment> appointments; // Stores booked appointments
 public final int[][] schedule = { // Block by Block Schedule for AAE
     {1, 2, 3, 4, 5}, // Monday
     {6, 7, 8, 1, 2}, // Tuesday
@@ -21,6 +22,7 @@ public final int[][] schedule = { // Block by Block Schedule for AAE
     {7, 8, 1, 2, 3}, // Thursday
     {4, 5, 6, 7, 8} // Friday
 };
+
 public final int[] timings = {70, 68, 68, 101, 69}; // Timings per block per regular class day
 
 public AppointmentBook(ArrayList<String> availBlock, int[][] availableTimings,int[][] unavailableBlocks){
@@ -44,7 +46,8 @@ public AppointmentBook(ArrayList<String> availBlock, int[][] availableTimings,in
                     minuteAvailability[p][m] = false;
                 }
             }
-    }
+        }
+        this.appointments = new ArrayList<>();
 }
 public AppointmentBook(ArrayList<String> availBlock, int[][] availableTimings){
     this.availBlocks = availBlock;
@@ -55,13 +58,14 @@ public AppointmentBook(ArrayList<String> availBlock, int[][] availableTimings){
                 minuteAvailability[r][c] = true; 
             }
         }
+        this.appointments = new ArrayList<>();
 }
 
 private boolean isMinuteFree(int period, int minute){
 return minuteAvailability[period][minute];
 }
 
-/**
+/*
 * Marks the block of minutes that starts at startMinute in period and
 * is duration minutes long as reserved for an appointment
 */
@@ -87,14 +91,59 @@ for (int minute = 0; minute < minuteAvailability[period].length; minute++) {
 return -1;}
 
 public boolean makeAppointment(int startPeriod, int endPeriod,int duration){
-for (int period = startPeriod;period <= endPeriod; period++)
-{int minute = findFreeBlock(period, duration);
-if (minute != -1)
-{reserveBlock(period, minute, duration);
-return true;}}
-return false;}
+    for (int period = startPeriod;period <= endPeriod; period++) {
+        int minute = findFreeBlock(period, duration);
+        if (minute != -1) {
+            reserveBlock(period, minute, duration);
+            return true;
+        }
+    }
+    return false;
 }
 
+public Appointment makeAppointment(int startPeriod, int endPeriod, int duration, Student student, Tutor tutor, String subject) {
+    for (int period = startPeriod; period <= endPeriod; period++) {
+        int minute = findFreeBlock(period, duration);
+        if (minute != -1) {
+            reserveBlock(period, minute, duration);
+            Appointment appointment = new Appointment(student, tutor, period, minute, duration, subject);
+            appointment.confirm();
+            appointments.add(appointment);
+            return appointment;
+        }
+    }
+    return null;
+}
+
+public ArrayList<Appointment> getAppointments() {
+    return appointments;
+}
+
+public Appointment getAppointmentById(int appointmentId) {
+    for (Appointment appointment : appointments) {
+        if (appointment.getId() == appointmentId) {
+            return appointment;
+        }
+    }
+    return null;
+}
+
+private void releaseBlock(int period, int startMinute, int duration) {
+    for (int i = startMinute; i < startMinute + duration; i++) {
+        minuteAvailability[period][i] = true;
+    }
+}
+
+public boolean cancelAppointment(int appointmentId) {
+    Appointment appointment = getAppointmentById(appointmentId);
+    if (appointment == null || appointment.isCanceled()) {
+        return false;
+    }
+    appointment.cancel();
+    releaseBlock(appointment.getPeriod(), appointment.getStartMinute(), appointment.getDuration());
+    return true;
+}
+}
 /* TODO:
 
 //Add method in ApptBook class to schedule based on lunch blocks for grade, first & second, or MS grade lunches, student should be able to choose if they want first or second based on the day if in HS
