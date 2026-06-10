@@ -12,6 +12,7 @@ public class Tutor {
     private double rating;             
     private double hourlyRate; 
     private int experienceYears;        
+    private boolean isVerified; // Rithvik
     
     public static ArrayList<String> tUnames = new ArrayList<>();
     public static ArrayList<Tutor> tutors = new ArrayList<>();
@@ -31,6 +32,7 @@ public class Tutor {
     public ArrayList<String> getSubjects() { 
         return subjects; 
     }
+    // Rithvik - Bottom 3 Methods
     public int getExperienceYears(){
         return experienceYears;
     }
@@ -49,6 +51,7 @@ public class Tutor {
     public void setSubjects(ArrayList<String> subjects) {
         this.subjects = subjects; 
     }
+    public void setVerify(boolean val){this.isVerified=val;} // Rithvik
     public Tutor(String fname, String lname, int age, int experienceYears, String password) {
         this.fname = fname;
         this.lname = lname;
