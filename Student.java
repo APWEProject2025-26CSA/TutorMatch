@@ -1,4 +1,4 @@
-//Student class - Aaditya
+//Aaditya - Student Class
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -20,6 +20,12 @@ public class Student{
     private ArrayList<Tutor> matches;
     private ArrayList<String> subjectMatches;
     
+    private ArrayList<Tutor> myTutors;
+    private ArrayList<Tutor> requestedTutors;
+    private ArrayList<String> sessions;
+    private ArrayList<Tutor> requestedSessions;
+    private StudentSession nextSession;
+    
     public static ArrayList<String> sUnames = new ArrayList<>();
     private static ArrayList<Student> students = new ArrayList<>();
     
@@ -34,6 +40,11 @@ public class Student{
         this.pwd = pwd;
         this.isMatched = false;
         this.matches = new ArrayList<>();
+        this.myTutors = new ArrayList<>();
+        this.requestedTutors = new ArrayList<>();
+        this.sessions = new ArrayList<>();
+        this.requestedSessions = new ArrayList<>();
+        this.nextSession = null;
         
         String un = fname+lname;
         if (!unameAvail(un)){
@@ -197,16 +208,77 @@ public class Student{
             
             Tutor pt = options.get(picked);
             
-            //Call request method in tutor class
+            this.requestedTutors.add(pt);
             
         }
     }
     
-    
+    //Invoked by tutor class
+    public void addTutor(Tutor tut){
+        this.myTutors.add(tut);
+    }
+  
     public void matchSingular(String subject){
         ArrayList<Tutor> m1 = TutorMatcher.matchStudents(this, subject);
         this.matches.add(m1);
         this.subjectMatches.add(subject);
     }
     
+    public boolean requestSession(String tUName){
+        
+        boolean found = false;
+        Tutor st = null;
+        for (Tutor tut : this.myTutors){
+            if (tut.getUname().equals(tUName)){
+                found = true;
+                st = tut;
+            }
+        }
+        if (found){
+            //Invoke method in tutor class to request session and from there the tutor checks and schedules
+            this.requestedSessions.add(st);
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public ArrayList<StudentSession> getPossSessions(String tUname){
+        
+        Tutor ps = null;
+        for (Tutor tut : this.requestedSessions){
+            if (tut.getUname.equals(tUname)){
+                ps = tut;
+            }
+        }
+        
+        if (ps!=null){
+            
+            //Get session times from tutor class
+            
+        } else {
+            System.out.println("None");
+            return new ArrayList<StudentSession>();
+        }
+    }
+    
+    public void acceptSession(ArrayList<StudentSession> ss, Scanner scan){
+        for (int i=0; i<ss.size(); i++){
+            System.out.print(""+i+": "+ss.get(i).toString());
+            System.out.println();
+        }
+        System.out.println("Pick a session");
+        int ind = Integer.parseInt(scan.nextLine());
+        
+        this.nextSession = ss.get(ind);
+        
+        //Call tutor class method to confirm session
+        
+        
+    }
+    
+    public void cancelNextSession(){
+        //Notify tutor via tutor method
+        this.nextSession = null;
+    }
 }
