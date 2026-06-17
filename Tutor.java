@@ -116,7 +116,7 @@ public class Tutor {
     public boolean scheduleSession(Student student, int startPeriod, int duration) {
         Appointment appt = this.appointmentBook.makeAppointment(startPeriod, startPeriod, duration, student, this, "General Support");
         if (appt != null) {
-            System.out.println("Session scheduled successfully with " + student.getUname());
+            System.out.println("Session scheduled with " + student.getUname());
             return true;
         }
         return false;
@@ -129,9 +129,9 @@ public class Tutor {
     public void cancelSession(int sessionId) {
         boolean success = this.appointmentBook.cancelAppointment(sessionId);
         if (success) {
-            System.out.println("Session #" + sessionId + " successfully canceled.");
+            System.out.println("Session numer" + sessionId + " successfully canceled.");
         } else {
-            System.out.println("Could not cancel session #" + sessionId + " (Not found or already inactive).");
+            System.out.println("Could not cancel session numer" + sessionId + " (Not found or already inactive).");
         }
     }
 }
