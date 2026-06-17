@@ -129,9 +129,9 @@ public class Tutor {
     public void cancelSession(int sessionId) {
         boolean success = this.appointmentBook.cancelAppointment(sessionId);
         if (success) {
-            System.out.println("Session numer" + sessionId + " successfully canceled.");
+            System.out.println("Session number" + sessionId + " successfully canceled.");
         } else {
-            System.out.println("Could not cancel session numer" + sessionId + " (Not found or already inactive).");
+            System.out.println("Could not cancel session number" + sessionId + " (Not found or already inactive).");
         }
     }
 }
