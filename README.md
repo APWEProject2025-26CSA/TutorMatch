@@ -25,5 +25,5 @@ TutorMatch addresses a critical gap in academic support in our school community 
 Furthermore, by embedding our own manual verification process at our academic institution, the application prioritizes the safety, security, and learning of our student users. With TutorMatch, we not only build a platform for facilitating academic help; in the long-term, we envision TutorMatch fostering an engaging, collaborative learning environment embedded deep within the school’s own academic support systems. Our tool simultaneously provides struggling students with the resources they need to succeed, and empowers peer tutors with valuable experience and volunteering opportunities. By seamlessly integrating academic assistance within the daily lives of the student body’s school schedule, TutorMatch stands as a powerful solution for making education more equitable, effective, and community-driven here in our school, and in the future, worldwide.
 
 ## Appendix:
-GitHub Repository: (APWEProject2025-26CSA/TutorMatch) [https://github.com/APWEProject2025-26CSA/TutorMatch]
+GitHub Repository: [APWEProject2025-26CSA/TutorMatch](https://github.com/APWEProject2025-26CSA/TutorMatch)
 
