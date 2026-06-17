@@ -1,7 +1,6 @@
 # AP With WE Project 2025-26 for AP CSA - TutorMatch
 
 ## Introduction:
-
 In our school, we find that there are numerous students requiring extra academic support during school hours, and are unable to access them due to funding cuts for our afterschool club programs such as tutoring help with teachers, and now only certain students are able to get in touch with teachers to receive extra help during certain periods of the day, lacking a formal process to seamlessly connect with them and other well-versed students. TutorMatch will improve the education and learning of students across the globe and provide them with extra support by integrating into a 5 block school schedule,  and providing a simple but powerful platform for them to access the help they need to succeed. This tool will freely match students with teachers and peer tutors so they can learn best from knowledgeable members of the community, using our application.
 
 ## Problem & Purpose:
@@ -12,8 +11,12 @@ TutorMatch utilizes a unique approach to give each of our students, and tutors a
 
 
 
-## Implementation:
-TBD
+## Implementation
+
+* Note: This section is incomplete, Anjana is still working on it *
+
+TutorMatch is a program that aims to give students the best education possible. By releasing the program in our school at first, we will match students looking for extra academic support with teachers and peer tutors using our well-designed matching system. This not only ensures that students have more opportunities to do well in school, but our rating systems and algorithms make sure both the tutors and the students have a friendly and engaging experience. With the addition of more users, we will verify tutor accounts to ensure credibility and knowledge, and make sure the students are getting the exact support they need. Our system would work strongly on a local level within our school, it would hold the capability to accommodate a larger community of learners and educators. We plan to host our program on a cloud system such as Microsoft Azure or Amazon AWS, and we will advertise it to our school to ensure learning opportunities are accessible to everyone. 
+
 
 ## Conclusion:
 
@@ -22,6 +25,5 @@ TutorMatch addresses a critical gap in academic support in our school community 
 Furthermore, by embedding our own manual verification process at our academic institution, the application prioritizes the safety, security, and learning of our student users. With TutorMatch, we not only build a platform for facilitating academic help; in the long-term, we envision TutorMatch fostering an engaging, collaborative learning environment embedded deep within the school’s own academic support systems. Our tool simultaneously provides struggling students with the resources they need to succeed, and empowers peer tutors with valuable experience and volunteering opportunities. By seamlessly integrating academic assistance within the daily lives of the student body’s school schedule, TutorMatch stands as a powerful solution for making education more equitable, effective, and community-driven here in our school, and in the future, worldwide.
 
 ## Appendix:
-GitHub Repository: [APWEProject2025-26CSA/TutorMatch](https://github.com/APWEProject2025-26CSA/TutorMatch "Go to the TutorMatch GitHub Repository")
-
+GitHub Repository: (APWEProject2025-26CSA/TutorMatch)[https://github.com/APWEProject2025-26CSA/TutorMatch]
 
