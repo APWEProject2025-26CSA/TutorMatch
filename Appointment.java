@@ -1,3 +1,4 @@
+// Rithvik
 public class Appointment {
     // Appointment Maker
     public static final int STATUS_REQUESTED = 0;
