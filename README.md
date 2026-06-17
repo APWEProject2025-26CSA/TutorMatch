@@ -20,6 +20,6 @@ TutorMatch utilizes a unique approach to give each of our students, and tutors a
 TutorMatch addresses a critical gap in academic support in our school community by providing an accessible, reliable, and data-driven platform for teacher and peer-to-peer tutoring. Driven by the constraints we have identified in our local education system and the experiences we have within it, the platform is shaped accordingly.
 
 ## Appendix:
-GitHub Repository: APWEProject2025-26CSA/TutorMatch 
+GitHub Repository: [APWEProject2025-26CSA/TutorMatch](https://github.com/APWEProject2025-26CSA/TutorMatch "Go to the TutorMatch GitHub Repository")
 
 
