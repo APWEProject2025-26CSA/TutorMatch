@@ -1,6 +1,3 @@
-//Tutor Class
-//Anjana
-
 import java.util.ArrayList;
 public class Tutor {
     private String fname;
@@ -8,11 +5,10 @@ public class Tutor {
     private String uname;
     private String password;
     private int age;
-    private ArrayList<String> subjects; 
+    private ArrayList<String> subjects;
     private double rating;             
     private double hourlyRate; 
     private int experienceYears;        
-    private boolean isVerified; // Rithvik
     
     public static ArrayList<String> tUnames = new ArrayList<>();
     public static ArrayList<Tutor> tutors = new ArrayList<>();
@@ -32,7 +28,6 @@ public class Tutor {
     public ArrayList<String> getSubjects() { 
         return subjects; 
     }
-    // Rithvik - Bottom 3 Methods
     public int getExperienceYears(){
         return experienceYears;
     }
@@ -51,7 +46,6 @@ public class Tutor {
     public void setSubjects(ArrayList<String> subjects) {
         this.subjects = subjects; 
     }
-    public void setVerify(boolean val){this.isVerified=val;} // Rithvik
     public Tutor(String fname, String lname, int age, int experienceYears, String password) {
         this.fname = fname;
         this.lname = lname;
@@ -110,4 +104,35 @@ public class Tutor {
             }
         }
     }
+    
+    public void addAvailability(int startPeriod, int endPeriod) {
+        System.out.println("Available from Period " + startPeriod + " to " + endPeriod);
+    }
+    public boolean isAvailable(int period, int duration) {
+        int checkBlock = this.appointmentBook.findFreeBlock(period, duration);
+        return checkBlock != -1;
+    }
+    
+    public boolean scheduleSession(Student student, int startPeriod, int duration) {
+        Appointment appt = this.appointmentBook.makeAppointment(startPeriod, startPeriod, duration, student, this, "General Support");
+        if (appt != null) {
+            System.out.println("Session scheduled successfully with " + student.getUname());
+            return true;
+        }
+        return false;
+    }
+    
+    public ArrayList<Appointment> getBookedSessions() {
+        return this.appointmentBook.getAppointments();
+    }
+    
+    public void cancelSession(int sessionId) {
+        boolean success = this.appointmentBook.cancelAppointment(sessionId);
+        if (success) {
+            System.out.println("Session #" + sessionId + " successfully canceled.");
+        } else {
+            System.out.println("Could not cancel session #" + sessionId + " (Not found or already inactive).");
+        }
+    }
 }
+    
