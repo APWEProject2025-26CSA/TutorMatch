@@ -2,7 +2,7 @@
 
 ## Introduction:
 
-In our school, we find that there are numerous students requiring extra academic support during school hours, and are unable to access them due to funding cuts for our afterschool club programs such as tutoring help with teachers, and now only certain students are able to get in touch with teachers to receive extra help during certain periods of the day, lacking a formal process to seamlessly connect with them and other well-versed students. TutorMatch will improve the education and learning of students across the globe and provide them with extra support by integrating into a 5 block school schedule and providing a simple but powerful platform for them to access the help they need to succeed. This tool will freely match students with teachers and peer tutors so they can learn best from knowledgeable and rated tutors, using our application.
+In our school, we find that there are numerous students requiring extra academic support during school hours, and are unable to access them due to funding cuts for our afterschool club programs such as tutoring help with teachers, and now only certain students are able to get in touch with teachers to receive extra help during certain periods of the day, lacking a formal process to seamlessly connect with them and other well-versed students. TutorMatch will improve the education and learning of students across the globe and provide them with extra support by integrating into a 5 block school schedule,  and providing a simple but powerful platform for them to access the help they need to succeed. This tool will freely match students with teachers and peer tutors so they can learn best from knowledgeable members of the community, using our application.
 
 ## Problem & Purpose:
 
